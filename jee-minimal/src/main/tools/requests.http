@@ -1,0 +1,59 @@
+# See https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html
+
+GET http://localhost:8080/jee-minimal/playground/hello
+
+###
+GET http://localhost:8080/jee-minimal/playground/echo/moin
+
+###
+POST http://localhost:8080/jee-minimal/playground/echo
+Content-Type: text/plain
+
+moin
+
+###
+POST http://localhost:8080/jee-minimal/playground/echo/person
+Content-Type: application/json
+
+{
+  "firstName": "Fred",
+  "lastName": "Musterling",
+  "birthDate": "1999-09-25"
+}
+
+###
+GET http://localhost:8080/jee-minimal/playground/person/classification
+Content-Type: application/json
+
+{
+  "firstName": "Fred",
+  "lastName": "Musterling",
+  "birthDate": "1999-09-25"
+}
+
+###
+
+GET http://localhost:8080/jee-minimal/playground/person/example
+
+###
+GET http://localhost:8080/jee-minimal/playground/error500
+
+###
+GET http://localhost:8080/jee-minimal/playground/exception/1
+
+###
+GET http://localhost:8080/jee-minimal/playground/exception/2
+
+###
+
+GET http://localhost:8080/jee-minimal/playground/scopes/request/participants
+Content-Type: application/json
+
+{
+  "firstName": "Fred",
+  "lastName": "Musterling",
+  "birthDate": "1999-09-25"
+}
+
+###
+

@@ -2,6 +2,7 @@ package playground.ee.jpa;
 
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
 import java.util.UUID;
 
 /**
@@ -11,17 +12,20 @@ import java.util.UUID;
 public class BaseEntity {
 
     @Id
-    private UUID id;
+    private String id;
+
+    @Version
+    private Long version;
 
     public BaseEntity() {
-        id = UUID.randomUUID();
+        id = UUID.randomUUID().toString();
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

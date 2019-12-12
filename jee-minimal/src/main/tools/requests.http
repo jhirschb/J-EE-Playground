@@ -34,6 +34,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/jee-minimal/playground/person/example
+Accept: application/xml
 
 ###
 GET http://localhost:8080/jee-minimal/playground/error500

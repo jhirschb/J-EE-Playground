@@ -7,9 +7,14 @@ mvn archtype:generate \
   -DarchetypeArtifactId=wildfly-jakartaee-webapp-archetype \
   -DarchetypeVersion=18.0.0.Final \
 
-## Deploy
+## TODO
 
+## H2
 
-## Play
+create a directory for the h2.jar and the database files 
+mkdir -p h2db/h2
+cd h2db
 
+Start the server
+java -cp h2-1.4.193.jar org.h2.tools.Server -tcp -baseDir h2
 

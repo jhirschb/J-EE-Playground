@@ -26,7 +26,6 @@ public class PersonEntity extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL)
     private List<ShoeEntity> shoes;
 
-
     public String getSurname() {
         return surname;
     }

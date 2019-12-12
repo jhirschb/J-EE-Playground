@@ -1,0 +1,7 @@
+batch
+
+data-source add --name=H2FileDS --driver-name=h2 --connection-url=jdbc:h2:tcp://localhost:9092/./PlayDB --jndi-name=java:jboss/datasources/H2FileDS --user-name=sa --password=sa
+data-source enable --name=H2FileDS
+
+run-batch
+reload

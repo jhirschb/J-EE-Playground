@@ -1,12 +1,16 @@
 package playground.ee.resources;
 
 import playground.ee.entities.SimplePerson;
+import playground.ee.scoped.DemoApplicationScoped;
 import playground.ee.services.ClassificationService;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author jhirschbeck
@@ -17,7 +21,13 @@ import java.time.LocalDate;
 public class HelloWorldResource {
 
     @Inject
+    @Named("xy")
+    DemoApplicationScoped applicationScoped;
+
+    @Inject
     private ClassificationService classificationService;
+
+    private AtomicInteger requestCount = new AtomicInteger(0);
 
     @GET
     @Path("/hello")
@@ -52,11 +62,20 @@ public class HelloWorldResource {
 
     @GET
     @Path("/person/example")
+    @Produces({"application/xml", "application/json"})
     public Response getExamplePerson() {
         SimplePerson person = new SimplePerson();
         person.setFirstName("Max");
         person.setLastName("Muster");
         person.setBirthDate(LocalDate.of(2000, 11, 11));
+
+        applicationScoped.countRequest();
+        final LocalTime start = LocalTime.now();
+        final int newCount = requestCount.incrementAndGet();
+        if (newCount % 100 == 0) {
+            System.out.println(this + " : 100 Requests performed");
+        }
+
         return Response.ok(person).build();
     }
 

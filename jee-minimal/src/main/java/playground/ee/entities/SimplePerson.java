@@ -1,11 +1,13 @@
 package playground.ee.entities;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 
 /**
  * @author jhirschbeck
  * @since
  */
+@XmlRootElement
 public class SimplePerson {
 
     private String firstName;

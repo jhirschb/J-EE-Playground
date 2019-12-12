@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
 import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 import static org.junit.Assert.assertThat;
 
@@ -28,11 +27,11 @@ public class PersonServiceTest {
     PersonService personService;
 
     @Deployment
-    public static Archive<?> getArchive() {
+    public static Archive<WebArchive> getArchive() {
 
         WebArchive war = ShrinkWrap.create(WebArchive.class);
         war.addPackage("playground.ee.jpa");
-        war.addAsResource("META-INF/jpa-persistence.xml", "META-INF/persistence.xml");
+        war.addAsResource("jpa-persistence.xml", "META-INF/persistence.xml");
         war.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
 
         return war;
@@ -59,7 +58,7 @@ public class PersonServiceTest {
         pe.setShoes(Arrays.asList(new ShoeEntity()));
         personService.persist(pe);
 
-        assertThat(pe.getId(), CoreMatchers.notNullValue(UUID.class));
+        assertThat(pe.getId(), CoreMatchers.notNullValue(String.class));
     }
 
 }

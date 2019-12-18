@@ -1,0 +1,36 @@
+GET http://localhost:8080/jee-jpa/api/inventory/example
+Accept: application/xml
+
+###
+GET http://localhost:8080/jee-jpa/api/inventory/example-direct
+
+###
+
+POST http://localhost:8080/jee-jpa/api/inventory/example
+Content-Type: application/xml
+Accept: application/xml
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<inventory>
+    <ID>new-identifier</ID>
+    <ISBN-LIST>
+        <isbn-number>ABCD-EF-9999</isbn-number>
+        <isbn-number>XXXX-YY-0001</isbn-number>
+    </ISBN-LIST>
+</inventory>
+###
+
+POST http://localhost:8080/jee-jpa/api/inventory/example-string
+Content-Type: application/xml
+Accept: application/xml
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<inventory>
+    <ID>new-identifier</ID>
+    <ISBN-LIST>
+        <isbn-number>ABCD-EF-9999</isbn-number>
+        <isbn-number>XXXX-YY-0001</isbn-number>
+    </ISBN-LIST>
+</inventory>
+
+###

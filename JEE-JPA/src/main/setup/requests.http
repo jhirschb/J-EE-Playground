@@ -1,3 +1,6 @@
+GET http://localhost:8080/jee-jpa/api/openapi.json
+
+###
 GET http://localhost:8080/jee-jpa/api/inventory/example
 Accept: application/xml
 

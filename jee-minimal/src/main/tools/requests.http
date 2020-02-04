@@ -3,7 +3,7 @@
 GET http://localhost:8080/jee-minimal/playground/hello
 
 ###
-GET http://localhost:8080/jee-minimal/playground/echo/moin
+GET http://localhost:8080/jee-minimal/playground/echo/moin123
 
 ###
 POST http://localhost:8080/jee-minimal/playground/echo
@@ -16,9 +16,19 @@ POST http://localhost:8080/jee-minimal/playground/echo/person
 Content-Type: application/json
 
 {
-  "firstName": "Fred",
-  "lastName": "Musterling",
-  "birthDate": "1999-09-25"
+  "birthDate": "2000-11-11",
+  "firstName": "Max",
+  "friends": [
+    "Joe",
+    "Bob",
+    "John"
+  ],
+  "lastName": "Muster",
+  "mappedFriends": {
+    "Joe": "Joe xy",
+    "Bob": "Bob xy",
+    "John": "John xy"
+  }
 }
 
 ###
@@ -58,3 +68,7 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:8080/jee-minimal/playground/jaxb/example
+Accept: application/json
+
+###

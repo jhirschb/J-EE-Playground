@@ -43,6 +43,7 @@ public class ScopeDemoResource {
     @Path("/request/participants")
     public Response requestParticipants(SimplePerson p) {
         final Integer requestNumber = applicationScoped.countRequest();
+        System.out.println("request number: " + requestNumber   );
         if (p != null && validationService.isValid(p)) {
             classificationService.classify(p);
         }

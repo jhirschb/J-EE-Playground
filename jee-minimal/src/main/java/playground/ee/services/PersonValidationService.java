@@ -3,17 +3,19 @@ package playground.ee.services;
 import playground.ee.entities.SimplePerson;
 import playground.ee.scoped.DemoRequest;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
  * @author jhirschbeck
  */
-@Stateless
 public class PersonValidationService {
 
     @Inject
     DemoRequest request;
+
+    public PersonValidationService() {
+        System.out.println("PersonValidationService created");
+    }
 
     public boolean isValid(SimplePerson person) {
         request.register(this.getClass().getSimpleName());

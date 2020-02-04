@@ -47,13 +47,18 @@ public class PersonServiceTest {
 
     @Test
     public void can_create_a_new_person_and_find_it() {
+        List<PersonEntity> all = personService.findAll();
+        int startsize = all.size();
         final PersonEntity babyMax = personService.createPerson("Max", "Muster");
-        final List<PersonEntity> all = personService.findAll();
+        all = personService.findAll();
+        int endsize = all.size();
         System.out.println("Fetched " + all.size() + " persons");
+        UnsupportedOperationException c;
+        assertThat(endsize - startsize, CoreMatchers.is(1));
     }
 
     @Test
-    public void create_person_with_shoes(){
+    public void create_person_with_shoes() {
         PersonEntity pe = new PersonEntity("Bill", "Bourne");
         pe.setShoes(Arrays.asList(new ShoeEntity()));
         personService.persist(pe);

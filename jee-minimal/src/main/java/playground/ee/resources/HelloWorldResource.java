@@ -10,6 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -38,7 +39,7 @@ public class HelloWorldResource {
     @GET
     @Path("/echo/{message}")
     public Response echo(@PathParam(value = "message") String message) {
-        return Response.ok(message).build();
+        return Response.ok(message + "---").build();
     }
 
     @POST
@@ -68,6 +69,7 @@ public class HelloWorldResource {
         person.setFirstName("Max");
         person.setLastName("Muster");
         person.setBirthDate(LocalDate.of(2000, 11, 11));
+        person.setFriends(Arrays.asList("Joe", "Bob", "John"));
 
         applicationScoped.countRequest();
         final LocalTime start = LocalTime.now();

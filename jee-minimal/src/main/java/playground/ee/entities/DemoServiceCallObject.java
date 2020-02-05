@@ -2,8 +2,7 @@ package playground.ee.entities;
 
 import playground.ee.jaxbadapter.LocalDateAdapter;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
@@ -11,11 +10,18 @@ import java.time.LocalDate;
  * @author jhirschbeck
  */
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"targetDate", "header", "pricelist"})
 public class DemoServiceCallObject {
 
+    @XmlElement(required = true)
     private String header = "random value";
 
+    @XmlElement(name = "target-date")
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private LocalDate targetDate = LocalDate.now();
+
+    private Pricelist pricelist = new Pricelist();
 
     public String getHeader() {
         return header;
@@ -25,13 +31,19 @@ public class DemoServiceCallObject {
         this.header = header;
     }
 
-    @XmlElement(name = "target-date")
-    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getTargetDate() {
         return targetDate;
     }
 
     public void setTargetDate(LocalDate targetDate) {
         this.targetDate = targetDate;
+    }
+
+    public Pricelist getPricelist() {
+        return pricelist;
+    }
+
+    public void setPricelist(Pricelist pricelist) {
+        this.pricelist = pricelist;
     }
 }

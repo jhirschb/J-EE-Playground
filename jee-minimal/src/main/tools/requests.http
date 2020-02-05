@@ -15,21 +15,6 @@ moin
 POST http://localhost:8080/jee-minimal/playground/echo/person
 Content-Type: application/json
 
-{
-  "birthDate": "2000-11-11",
-  "firstName": "Max",
-  "friends": [
-    "Joe",
-    "Bob",
-    "John"
-  ],
-  "lastName": "Muster",
-  "mappedFriends": {
-    "Joe": "Joe xy",
-    "Bob": "Bob xy",
-    "John": "John xy"
-  }
-}
 
 ###
 GET http://localhost:8080/jee-minimal/playground/person/classification

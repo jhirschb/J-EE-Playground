@@ -9,6 +9,8 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import playground.ee.dto.DemoCheckedException;
+import playground.ee.dto.TxSteeringDto;
 
 import javax.inject.Inject;
 import java.util.Arrays;
@@ -46,10 +48,10 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void can_create_a_new_person_and_find_it() {
+    public void can_create_a_new_person_and_find_it() throws DemoCheckedException {
         List<PersonEntity> all = personService.findAll();
         int startsize = all.size();
-        final PersonEntity babyMax = personService.createPerson("Max", "Muster");
+        final PersonEntity babyMax = personService.createPerson("Max", "Muster", new TxSteeringDto());
         all = personService.findAll();
         int endsize = all.size();
         System.out.println("Fetched " + all.size() + " persons");

@@ -83,11 +83,10 @@
     </dependencyManagement>
 
     <dependencies>
-
-        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
-            <groupId>jakarta.enterprise</groupId>
-            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>8.0.0</version>
             <scope>provided</scope>
         </dependency>
 
@@ -100,24 +99,10 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the JPA API, we use provided scope as the API is included in JBoss EAP -->
-        <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
         <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
             <artifactId>jboss-jsf-api_2.3_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss EAP -->
-        <dependency>
-            <groupId>org.jboss.spec.javax.ws.rs</groupId>
-            <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -132,12 +117,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the EJB API, we use provided scope as the API is included in JBoss EAP -->
         <dependency>
-            <groupId>org.jboss.spec.javax.ejb</groupId>
-            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
-            <scope>provided</scope>
+            <groupId>javax.jws</groupId>
+            <artifactId>jsr181-api</artifactId>
+            <version>1.0-MR1</version>
         </dependency>
+
 
         <!-- Test scope dependencies -->
         <dependency>

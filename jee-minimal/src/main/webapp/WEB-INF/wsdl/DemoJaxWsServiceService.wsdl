@@ -1,0 +1,54 @@
+<wsdl:definitions name="DemoJaxWsServiceService" targetNamespace="http://ws.ee.playground/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.ee.playground/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+    <wsdl:types>
+        <xs:schema elementFormDefault="unqualified" targetNamespace="http://ws.ee.playground/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="demoServiceCallObject" type="tns:demoServiceCallObject"/>
+            <xs:element name="enrichObject" type="tns:enrichObject"/>
+            <xs:element name="enrichObjectResponse" type="tns:enrichObjectResponse"/>
+            <xs:complexType name="enrichObject">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="tns:demoServiceCallObject"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="demoServiceCallObject">
+                <xs:sequence>
+                    <xs:element minOccurs="1" name="header" type="xs:string"/>
+                    <xs:element minOccurs="0" name="target-date" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="enrichObjectResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:demoServiceCallObject"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="enrichObject">
+        <wsdl:part element="tns:enrichObject" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="enrichObjectResponse">
+        <wsdl:part element="tns:enrichObjectResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="DemoJaxWsService">
+        <wsdl:operation name="enrichObject">
+            <wsdl:input message="tns:enrichObject" name="enrichObject"/>
+            <wsdl:output message="tns:enrichObjectResponse" name="enrichObjectResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DemoJaxWsServiceServiceSoapBinding" type="tns:DemoJaxWsService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="enrichObject">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="enrichObject">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="enrichObjectResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DemoJaxWsServiceService">
+        <wsdl:port binding="tns:DemoJaxWsServiceServiceSoapBinding" name="DemoJaxWsServicePort">
+            <soap:address location="http://localhost:8080/jee-minimal/DemoJaxWsService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

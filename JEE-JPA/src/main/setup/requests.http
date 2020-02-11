@@ -1,3 +1,54 @@
+###
+GET http://localhost:8080/jee-jpa/api/persons/person/87e5d92e-2faf-4643-a71a-8124696d11f9
+###
+
+DELETE http://localhost:8080/jee-jpa/api/persons/person/
+
+###
+PUT http://localhost:8080/jee-jpa/api/persons/person
+Content-Type: application/json
+
+{
+  "id": "87e5d92e-2faf-4643-a71a-8124696d11f9",
+  "version": "0",
+  "surname": "xxxx",
+  "lastname": "xxx",
+  "shoes": [
+    {
+      "size": 12
+    },
+    {
+      "size": 22
+    },
+    {
+      "size": 23
+    }
+  ]
+}
+
+###
+GET http://localhost:8080/jee-jpa/api/persons/person/example
+
+
+###
+POST http://localhost:8080/jee-jpa/api/persons/person
+Content-Type: application/json
+
+{
+  "surname": "John Jack Charly",
+  "lastname": "Doe",
+  "shoes": [
+    {
+      "size": 12
+    },
+    {
+      "size": 22
+    }
+  ]
+}
+
+###
+
 GET http://localhost:8080/jee-jpa/api/inventory/example
 Accept: application/xml
 
@@ -18,6 +69,7 @@ Accept: application/xml
         <isbn-number>XXXX-YY-0001</isbn-number>
     </ISBN-LIST>
 </inventory>
+
 ###
 
 POST http://localhost:8080/jee-jpa/api/inventory/example-string
@@ -34,3 +86,13 @@ Accept: application/xml
 </inventory>
 
 ###
+
+POST http://localhost:8080/jee-jpa/api/shopper/create
+Content-Type: application/json
+
+{
+  "exceptionTypeShop": ""
+}
+###
+# "exceptionTypePerson": "",
+# "exceptionTypeShop": ""
